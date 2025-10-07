@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galeri Pantai Pandaratan</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <table class="layout" cellspacing="0" cellpadding="0">
+    <tr>
+      <td colspan="2" class="header">
+        <h1>PANTAI PANDARATAN</h1>
+        <p>Galeri Keindahan Alam dan Laut</p>
+      </td>
+    </tr>
+    <tr>
+      <td class="sidebar" valign="top">
+        <h3>Menu</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html" class="active">Gallery</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </td>
+      <td class="content" valign="top">
+        <h2>Galeri Pantai Pandaratan</h2>
+        <p>Klik gambar untuk melihat informasi menarik seputar keindahan Pantai Pandaratan.</p>
+        <table class="gallery-table" cellpadding="10" cellspacing="10">
+          <tr align="center">
+            <td>
+              <img src="pemandangan.jpeg" class="gallery-img" alt="Pemandangan Pantai" onclick="showPopup('pemandangan')" />
+              <h3>Pemandangan Pantai</h3>
+            </td>
+            <td>
+              <img src="perahu.webp" class="gallery-img" alt="Perahu Nelayan" onclick="showPopup('perahu')" />
+              <h3>Perahu Nelayan</h3>
+            </td>
+            <td>
+              <img src="sunsett.jpeg" class="gallery-img" alt="Sunset di Pandaratan" onclick="showPopup('sunset')" />
+              <h3>Sunset di Pandaratan</h3>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" class="footer">
+        Putra Mahesa (231011400753) | 2025 Wisata Pantai Pandaratan | <a href="contact.html">Hubungi Kami</a>
+      </td>
+    </tr>
+  </table>
+
+  <!-- POPUP DETAIL -->
+  <div id="popup" class="popup">
+    <div class="popup-content" id="popup-content">
+      <img id="popup-img" src="" alt="Gambar Pantai Pandaratan" />
+      <h2 id="popup-title"></h2>
+      <p id="popup-text"></p>
+      <button class="close-btn" onclick="closePopup()">Tutup</button>
+    </div>
+  </div>
+
+  <script>
+    function showPopup(place) {
+      const popup = document.getElementById("popup");
+      const img = document.getElementById("popup-img");
+      const title = document.getElementById("popup-title");
+      const text = document.getElementById("popup-text");
+
+      if (place === "pemandangan") {
+        img.src = "pemandangan.jpeg";
+        title.textContent = "Pemandangan Pantai";
+        text.textContent = "Hamparan laut biru dan pasir putih menciptakan panorama alami yang menenangkan jiwa.";
+      } else if (place === "perahu") {
+        img.src = "perahu.webp";
+        title.textContent = "Perahu Nelayan";
+        text.textContent = "Nelayan setempat siap mengantar wisatawan berkeliling menikmati laut Pandaratan yang jernih.";
+      } else if (place === "sunset") {
+        img.src = "sunsett.jpeg";
+        title.textContent = "Sunset di Pandaratan";
+        text.textContent = "Pemandangan matahari terbenam yang romantis menjadi momen favorit wisatawan di Pantai Pandaratan.";
+      }
+      popup.style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
+</body>
+</html>
